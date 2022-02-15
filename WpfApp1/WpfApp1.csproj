@@ -6,4 +6,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resourses\bull.png" />
+    <None Remove="Resourses\icons8-love-60.png" />
+    <None Remove="Resourses\icons8-sad-60.png" />
+    <None Remove="Resourses\icons8-sweating-60.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resourses\bull.png" />
+    <Resource Include="Resourses\icons8-love-60.png" />
+    <Resource Include="Resourses\icons8-sad-60.png" />
+    <Resource Include="Resourses\icons8-sweating-60.png" />
+  </ItemGroup>
+
 </Project>
