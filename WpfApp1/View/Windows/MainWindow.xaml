@@ -9,29 +9,38 @@
         mc:Ignorable="d"
         Title="Bulls And Cows" Height="450" Width="800">
     <Window.Resources>
+
     </Window.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="65" Style="{StaticResource Menu}">
             <StackPanel >
-                <ToggleButton x:Name="MenuBtn" Margin="8" Width="40" Height="40" Grid.Column="0" Grid.Row="0" Content="{StaticResource BullImage}"/>
-                <TextBlock Text="Menu" VerticalAlignment="Center" Margin="5"/>
+                <ToggleButton x:Name="MenuBtn" Margin="8" Width="40" Height="40" 
+                              Grid.Column="0" Grid.Row="0" Content="{StaticResource BullImage}"/>
+                <TextBlock Text="Меню"/>
             </StackPanel>
             <StackPanel   Grid.Row="1" >
                 <Button Content="{StaticResource LoveImage}" />
-                <TextBlock Text="Новая" />
+                <TextBlock Text="Новая игра" />
             </StackPanel>
             <StackPanel  Grid.Row="2">
                 <Button Content="{StaticResource SweatingImage}"/>
                 <TextBlock Text="Настройки" />
             </StackPanel>
             <StackPanel  Grid.Row="3">
-                <Button Content="{StaticResource SadImage}"/>
+                <Button Content="{StaticResource SadImage}" Command="{StaticResource CloseCommand}"/>
                 <TextBlock Text="Выход"/>
             </StackPanel>
         </StackPanel>
         <GroupBox Grid.Column="1" Grid.RowSpan="4" >
             <GroupBox.Header >
-                <TextBlock Text="Игровое поле" />
+
+                <TextBlock FontFamily="Teddy Bear" 
+                           TextWrapping="Wrap" 
+                            FontSize="20" FontWeight="Bold">
+                    <Run>
+                        Игровое поле
+                    </Run>
+                </TextBlock>
             </GroupBox.Header>
             <ContentControl Content="{Binding }">
 

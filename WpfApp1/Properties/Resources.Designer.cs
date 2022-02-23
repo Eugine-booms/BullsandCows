@@ -59,5 +59,14 @@ namespace BullsAndCowsWPF.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на teddybear.ttf.
+        /// </summary>
+        internal static string Font {
+            get {
+                return ResourceManager.GetString("Font", resourceCulture);
+            }
+        }
     }
 }
