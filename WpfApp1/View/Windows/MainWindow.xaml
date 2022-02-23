@@ -40,6 +40,14 @@
                 <Button Content="{StaticResource SadImage}"/>
                 <TextBlock Text="Выход"/>
             </StackPanel>
+            <GroupBox Grid.Column="1" Grid.RowSpan="4" >
+                <GroupBox.Header >
+                    <TextBlock Text="Игравое поле" />
+                </GroupBox.Header>
+                <ContentControl Content="{Binding }">
+                    
+                </ContentControl>
+            </GroupBox>
         </Grid>
     </DockPanel>
 </Window>
