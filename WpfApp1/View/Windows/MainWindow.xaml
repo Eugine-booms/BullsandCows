@@ -4,27 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        FontFamily="Calibri"
         
         mc:Ignorable="d"
         Title="Bulls And Cows" Height="450" Width="800">
     <Window.Resources>
     </Window.Resources>
     <DockPanel>
-        <Grid>
-            <Grid.Resources>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="MenuColumn" Style="{StaticResource Column}" />
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions >
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions >
-            <GridSplitter Grid.Column="0" Grid.RowSpan="10" Background="Red" Width="3" />
-            <StackPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="65" Style="{StaticResource Menu}">
+            <StackPanel >
                 <ToggleButton x:Name="MenuBtn" Margin="8" Width="40" Height="40" Grid.Column="0" Grid.Row="0" Content="{StaticResource BullImage}"/>
                 <TextBlock Text="Menu" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
@@ -40,6 +28,14 @@
                 <Button Content="{StaticResource SadImage}"/>
                 <TextBlock Text="Выход"/>
             </StackPanel>
-        </Grid>
+        </StackPanel>
+        <GroupBox Grid.Column="1" Grid.RowSpan="4" >
+            <GroupBox.Header >
+                <TextBlock Text="Игровое поле" />
+            </GroupBox.Header>
+            <ContentControl Content="{Binding }">
+
+            </ContentControl>
+        </GroupBox>
     </DockPanel>
 </Window>
