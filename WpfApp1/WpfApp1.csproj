@@ -14,10 +14,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resourses\bull.png" />
-    <Resource Include="Resourses\icons8-love-60.png" />
-    <Resource Include="Resourses\icons8-sad-60.png" />
-    <Resource Include="Resourses\icons8-sweating-60.png" />
+    <Resource Include="Resourses\Image\bull.png" />
+    <Resource Include="Resourses\Image\icons8-love-60.png" />
+    <Resource Include="Resourses\Image\icons8-sad-60.png" />
+    <Resource Include="Resourses\Image\icons8-sweating-60.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resourses\DataTemplates\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
