@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BullsAndCowsWPF.ViewModels
 {
-    class MainWindowsWiewModel : ViewModelBase
+    internal class MainWindowsViewModel : ViewModelBase
     {
 
     }
