@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        DataContext="{Binding MainwindowsViewModel , Source={StaticResource Locator}}"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         xmlns:local="clr-namespace:WpfApp1"
         FontFamily="Calibri"
         
@@ -34,7 +34,6 @@
         </StackPanel>
         <GroupBox Grid.Column="1" Grid.RowSpan="4" >
             <GroupBox.Header >
-
                 <TextBlock FontFamily="Teddy Bear" 
                            TextWrapping="Wrap" 
                             FontSize="20" FontWeight="Bold">

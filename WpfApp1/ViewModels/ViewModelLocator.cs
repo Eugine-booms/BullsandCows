@@ -5,8 +5,8 @@ using WpfApp1;
 
 namespace BullsAndCowsWPF.ViewModels
 {
-    internal class ViewModelLocator
+    public class ViewModelLocator
     {
-        internal MainWindowsViewModel MainViewModel => App.Host.Services.GetService<MainWindowsViewModel>();
+        public MainWindowsViewModel MainViewModel => App.Host.Services.GetService<MainWindowsViewModel>();
     }
 }
