@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cmd="clr-namespace:BullsAndCowsWPF.Infrastructure.Command">
+
+    <Style TargetType="ToggleButton" >
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    <Style TargetType="Button" >
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+    <Style TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="TextElement.FontFamily" Value="../Fonts/#Teddy Bear"/>
+        <Setter Property="TextElement.FontSize" Value="30"/>
+
+    </Style>
+    <Style TargetType="StackPanel" x:Key="Menu">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=MenuBtn, Path=IsChecked}" Value="True">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard >
+                        <Storyboard >
+                            <DoubleAnimation Storyboard.TargetProperty="Width" 
+                                             From="65" To="270" 
+                                             Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard >
+                        <Storyboard >
+                            <DoubleAnimation Storyboard.TargetProperty="Width" 
+                                             From="270" To="65" 
+                                             Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="TextBlock" >
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <cmd:CloseAppCommand x:Key="CloseCommand" />
+
+</ResourceDictionary>
