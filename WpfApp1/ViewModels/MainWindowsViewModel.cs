@@ -1,8 +1,6 @@
-﻿using BullsAndCowsWPF.ViewModels.Base;
-
-namespace BullsAndCowsWPF.ViewModels
+﻿namespace BullsAndCowsWPF.ViewModels
 {
-  public  class MainWindowsViewModel : ViewModelBase
+    public class MainWindowsViewModel
     {
     }
 }
