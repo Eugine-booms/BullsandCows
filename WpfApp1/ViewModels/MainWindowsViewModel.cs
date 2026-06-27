@@ -10,8 +10,18 @@ namespace BullsAndCowsWPF.ViewModels
         public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
-            set => Set(ref _currentViewModel, value);
+            set
+            {
+                if (Set(ref _currentViewModel, value))
+                {
+                    OnPropertyChanged(nameof(IsGameViewActive));
+                    OnPropertyChanged(nameof(IsSettingsViewActive));
+                }
+            }
         }
+
+        public bool IsGameViewActive => CurrentViewModel is GameViewModel;
+        public bool IsSettingsViewActive => CurrentViewModel is SettingsViewModel;
 
         public ICommand ShowGameViewCommand { get; }
         public ICommand ShowSettingsViewCommand { get; }

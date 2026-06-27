@@ -19,11 +19,13 @@
                 <TextBlock Text="Меню"/>
             </StackPanel>
             <StackPanel Style="{StaticResource MenuItem}">
-                <Button Content="{StaticResource LoveImage}" Command="{Binding ShowGameViewCommand}" />
+                <ToggleButton IsChecked="{Binding IsGameViewActive, Mode=OneWay}" Command="{Binding ShowGameViewCommand}" 
+                              Content="{StaticResource LoveImage}" />
                 <TextBlock Text="Игра" />
             </StackPanel>
             <StackPanel Style="{StaticResource MenuItem}">
-                <Button Content="{StaticResource SweatingImage}" Command="{Binding ShowSettingsViewCommand}"/>
+                <ToggleButton IsChecked="{Binding IsSettingsViewActive, Mode=OneWay}" Command="{Binding ShowSettingsViewCommand}" 
+                              Content="{StaticResource SweatingImage}"/>
                 <TextBlock Text="Настройки" />
             </StackPanel>
             <StackPanel Style="{StaticResource MenuItem}">
@@ -35,10 +37,8 @@
             <GroupBox.Header >
                 <TextBlock FontFamily="Teddy Bear" 
                            TextWrapping="Wrap" 
-                            FontSize="20" FontWeight="Bold">
-                    <Run>
-                        Игровое поле
-                    </Run>
+                            FontSize="20" FontWeight="Bold" Text="Игровое поле">
+                   
                 </TextBlock>
             </GroupBox.Header>
             <ContentControl Content="{Binding CurrentViewModel}">

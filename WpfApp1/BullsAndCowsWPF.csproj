@@ -9,15 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resourses\bull.png" />
-    <None Remove="Resourses\Fonts\teddybear.ttf" />
-    <None Remove="Resourses\icons8-love-60.png" />
-    <None Remove="Resourses\icons8-sad-60.png" />
-    <None Remove="Resourses\icons8-sweating-60.png" />
-    <None Remove="Resourses\Image\Cow_33885.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resourses\Fonts\teddybear.ttf" />
     <Resource Include="Resourses\Image\bull.png" />
     <Resource Include="Resourses\Image\Cow_33885.ico" />
