@@ -6,6 +6,52 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="650">
     <Grid Margin="10">
+        <Grid.Resources>
+            <Style x:Key="CartoonDataGrid" TargetType="DataGrid">
+                <Setter Property="BorderBrush" Value="#FF8C42"/>
+                <Setter Property="BorderThickness" Value="3"/>
+                <Setter Property="Background" Value="#FFF8E7"/>
+                <Setter Property="RowBackground" Value="#FFFBE6"/>
+                <Setter Property="AlternatingRowBackground" Value="#FFE4B5"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserDeleteRows" Value="False"/>
+                <Setter Property="CanUserReorderColumns" Value="False"/>
+                <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="GridLinesVisibility" Value="None"/>
+                <Setter Property="RowHeight" Value="40"/>
+                <Setter Property="ColumnHeaderHeight" Value="45"/>
+                <Setter Property="FontFamily" Value="../Resourses/Fonts/#Teddy Bear"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Foreground" Value="#5D4037"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
+                <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+            </Style>
+
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="#FF8C42"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="../Resourses/Fonts/#Teddy Bear"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+
+            <Style TargetType="DataGridCell">
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Padding" Value="5,2"/>
+            </Style>
+
+            <Style TargetType="DataGridRow">
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </Grid.Resources>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -13,30 +59,60 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Быки и Коровы" FontFamily="../Resourses/Fonts/#Teddy Bear" FontSize="24"  HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        <TextBlock Text="Быки и Коровы" FontFamily="../Resourses/Fonts/#Teddy Bear" FontSize="28" 
+                   HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="#D84315" FontWeight="Bold"/>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" TextElement.FontSize="12">
-            <TextBox x:Name="GuessTextBox" Text="{Binding UserGuess, UpdateSourceTrigger=PropertyChanged}" Width="150" FontSize="26" 
-                     MaxLength="{Binding Settings.NumberLength}" HorizontalContentAlignment="Center">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" 
+                    TextElement.FontSize="12">
+            <TextBox x:Name="GuessTextBox" Text="{Binding UserGuess, UpdateSourceTrigger=PropertyChanged}" 
+                     Width="150" FontSize="26" FontFamily="../Resourses/Fonts/#Teddy Bear"
+                     MaxLength="{Binding Settings.NumberLength}" HorizontalContentAlignment="Center"
+                     BorderBrush="#FF8C42" BorderThickness="2">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding MakeGuessCommand}"/>
                 </TextBox.InputBindings>
             </TextBox>
-            <Button Content="Проверить" Command="{Binding MakeGuessCommand}" Margin="10,0,0,0" Width="120" FontSize="18" FontFamily="../Resourses/Fonts/#Teddy Bear"/>
-            <Button Content="Новая игра" Command="{Binding NewGameCommand}" Margin="10,0,0,0" Width="120" FontSize="18" FontFamily="../Resourses/Fonts/#Teddy Bear"/>
+            <Button Content="Проверить" Command="{Binding MakeGuessCommand}" Margin="10,0,0,0" Width="120" 
+                    FontSize="18" FontFamily="../Resourses/Fonts/#Teddy Bear"
+                    Background="#FF8C42" Foreground="White" BorderThickness="0"/>
+            <Button Content="Новая игра" Command="{Binding NewGameCommand}" Margin="10,0,0,0" Width="120" 
+                    FontSize="18" FontFamily="../Resourses/Fonts/#Teddy Bear"
+                    Background="#66BB6A" Foreground="White" BorderThickness="0"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="2" ItemsSource="{Binding Results}" AutoGenerateColumns="False" 
-                  IsReadOnly="True" HeadersVisibility="Column" Margin="0,0,0,10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="#" Binding="{Binding AttemptNumber}" Width="40"/>
-                <DataGridTextColumn Header="Число" Binding="{Binding Guess}" Width="100"/>
-                <DataGridTextColumn Header="Быки" Binding="{Binding Bulls}" Width="60"/>
-                <DataGridTextColumn Header="Коровы" Binding="{Binding Cows}" Width="60"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Border Grid.Row="2" Background="#FFF8E7" CornerRadius="15" Padding="5" 
+                BorderBrush="#FF8C42" BorderThickness="3" Margin="0,0,0,10">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF8C42" BlurRadius="15" ShadowDepth="5" Opacity="0.3"/>
+            </Border.Effect>
+            <DataGrid ItemsSource="{Binding Results}" AutoGenerateColumns="False" 
+                      Style="{StaticResource CartoonDataGrid}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding AttemptNumber}" Width="50"/>
+                    <DataGridTextColumn Header="Число" Binding="{Binding Guess}" Width="120"/>
+                    <DataGridTextColumn Header="Быки" Binding="{Binding Bulls}" Width="80">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#E65100"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Коровы" Binding="{Binding Cows}" Width="90">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#C2185B"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
 
-        <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" FontSize="14" HorizontalAlignment="Center" 
-                   TextWrapping="Wrap" Foreground="DarkBlue"/>
+        <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" FontSize="16" HorizontalAlignment="Center" 
+                   TextWrapping="Wrap" Foreground="#5D4037" FontFamily="../Resourses/Fonts/#Teddy Bear"/>
     </Grid>
 </UserControl>
