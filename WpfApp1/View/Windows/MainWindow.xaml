@@ -13,20 +13,20 @@
     </Window.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="65" Style="{StaticResource Menu}">
-            <StackPanel >
+            <StackPanel Style="{StaticResource MenuItem}">
                 <ToggleButton x:Name="MenuBtn" Margin="8" Width="40" Height="40" 
-                              Grid.Column="0" Grid.Row="0" Content="{StaticResource BullImage}"/>
+                              Content="{StaticResource BullImage}"/>
                 <TextBlock Text="Меню"/>
             </StackPanel>
-            <StackPanel   Grid.Row="1" >
+            <StackPanel Style="{StaticResource MenuItem}">
                 <Button Content="{StaticResource LoveImage}" Command="{Binding ShowGameViewCommand}" />
                 <TextBlock Text="Игра" />
             </StackPanel>
-            <StackPanel  Grid.Row="2">
+            <StackPanel Style="{StaticResource MenuItem}">
                 <Button Content="{StaticResource SweatingImage}" Command="{Binding ShowSettingsViewCommand}"/>
                 <TextBlock Text="Настройки" />
             </StackPanel>
-            <StackPanel  Grid.Row="3">
+            <StackPanel Style="{StaticResource MenuItem}">
                 <Button Content="{StaticResource SadImage}" Command="{StaticResource CloseCommand}"/>
                 <TextBlock Text="Выход"/>
             </StackPanel>
