@@ -13,7 +13,8 @@ namespace BullsAndCowsWPF.Services
 
         public GameEngine(INumberGenerator numberGenerator)
         {
-            _numberGenerator = numberGenerator ?? throw new ArgumentNullException(nameof(numberGenerator));
+            ArgumentNullException.ThrowIfNull(numberGenerator);
+            _numberGenerator = numberGenerator;
         }
 
         public string SecretNumber { get; private set; }

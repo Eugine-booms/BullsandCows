@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Cow_33885.ico</ApplicationIcon>
     <StartupObject>BullsAndCowsWPF.Programm</StartupObject>
@@ -24,17 +24,14 @@
     <Resource Include="Resourses\Image\icons8-love-60.png" />
     <Resource Include="Resourses\Image\icons8-sad-60.png" />
     <Resource Include="Resourses\Image\icons8-sweating-60.png" />
-	  
   </ItemGroup>
-	
 
   <ItemGroup>
     <Folder Include="Resourses\DataTemplates\" />
   </ItemGroup>
-	
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0-preview.3.25172.1" />
   </ItemGroup>
 
   <ItemGroup>
