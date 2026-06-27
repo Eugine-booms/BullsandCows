@@ -14,7 +14,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="65" Style="{StaticResource Menu}">
             <StackPanel Style="{StaticResource MenuItem}">
-                <ToggleButton x:Name="MenuBtn" Margin="8" Width="40" Height="40" 
+                <ToggleButton x:Name="MenuBtn" IsChecked="True" Margin="8" Width="40" Height="40" 
                               Content="{StaticResource BullImage}"/>
                 <TextBlock Text="Меню"/>
             </StackPanel>
