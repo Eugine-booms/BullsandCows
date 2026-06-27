@@ -7,6 +7,8 @@ namespace BullsAndCowsWPF.Services
 {
     public class RandomNumberGenerator : INumberGenerator
     {
+        private static readonly Random _random = new Random();
+
         public string GenerateNumber(int length, int minDigit, int maxDigit, bool allowDuplicates)
         {
             if (length <= 0) throw new ArgumentException("Длина должна быть > 0", nameof(length));
@@ -18,7 +20,7 @@ namespace BullsAndCowsWPF.Services
             var digits = new List<int>();
             for (int i = 0; i < length; i++)
             {
-                int idx = Random.Shared.Next(range.Count);
+                int idx = _random.Next(range.Count);
                 digits.Add(range[idx]);
                 if (!allowDuplicates)
                     range.RemoveAt(idx);
