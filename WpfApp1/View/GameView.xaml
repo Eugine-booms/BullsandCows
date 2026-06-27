@@ -16,8 +16,12 @@
         <TextBlock Text="Быки и Коровы" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" TextElement.FontSize="12">
-            <TextBox Text="{Binding UserGuess, UpdateSourceTrigger=PropertyChanged}" Width="150" FontSize="18" 
-                     MaxLength="{Binding Settings.NumberLength}" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="GuessTextBox" Text="{Binding UserGuess, UpdateSourceTrigger=PropertyChanged}" Width="150" FontSize="18" 
+                     MaxLength="{Binding Settings.NumberLength}" HorizontalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding MakeGuessCommand}"/>
+                </TextBox.InputBindings>
+            </TextBox>
             <Button Content="Проверить" Command="{Binding MakeGuessCommand}" Margin="10,0,0,0" Width="120" FontSize="12"/>
             <Button Content="Новая игра" Command="{Binding NewGameCommand}" Margin="10,0,0,0" Width="120" FontSize="12"/>
         </StackPanel>
