@@ -1,0 +1,38 @@
+<UserControl x:Class="BullsAndCowsWPF.View.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="650">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Быки и Коровы" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <TextBox Text="{Binding UserGuess, UpdateSourceTrigger=PropertyChanged}" Width="150" FontSize="18" 
+                     MaxLength="{Binding Settings.NumberLength}" HorizontalContentAlignment="Center"/>
+            <Button Content="Проверить" Command="{Binding MakeGuessCommand}" Margin="10,0,0,0" Width="100"/>
+            <Button Content="Новая игра" Command="{Binding NewGameCommand}" Margin="10,0,0,0" Width="100"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" ItemsSource="{Binding Results}" AutoGenerateColumns="False" 
+                  IsReadOnly="True" HeadersVisibility="Column" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding AttemptNumber}" Width="40"/>
+                <DataGridTextColumn Header="Число" Binding="{Binding Guess}" Width="100"/>
+                <DataGridTextColumn Header="Быки" Binding="{Binding Bulls}" Width="60"/>
+                <DataGridTextColumn Header="Коровы" Binding="{Binding Cows}" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" FontSize="14" HorizontalAlignment="Center" 
+                   TextWrapping="Wrap" Foreground="DarkBlue"/>
+    </Grid>
+</UserControl>

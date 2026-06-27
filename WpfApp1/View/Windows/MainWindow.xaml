@@ -1,16 +1,15 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+<Window x:Class="BullsAndCowsWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:BullsAndCowsWPF.ViewModels"
+        xmlns:view="clr-namespace:BullsAndCowsWPF.View"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
-        xmlns:local="clr-namespace:WpfApp1"
         FontFamily="Calibri"
-        
         mc:Ignorable="d"
-        Title="Bulls And Cows" Height="450" Width="800">
+        Title="Bulls And Cows" Height="600" Width="900">
     <Window.Resources>
-
     </Window.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="65" Style="{StaticResource Menu}">
@@ -20,11 +19,11 @@
                 <TextBlock Text="Меню"/>
             </StackPanel>
             <StackPanel   Grid.Row="1" >
-                <Button Content="{StaticResource LoveImage}" />
-                <TextBlock Text="Новая игра" />
+                <Button Content="{StaticResource LoveImage}" Command="{Binding ShowGameViewCommand}" />
+                <TextBlock Text="Игра" />
             </StackPanel>
             <StackPanel  Grid.Row="2">
-                <Button Content="{StaticResource SweatingImage}"/>
+                <Button Content="{StaticResource SweatingImage}" Command="{Binding ShowSettingsViewCommand}"/>
                 <TextBlock Text="Настройки" />
             </StackPanel>
             <StackPanel  Grid.Row="3">
@@ -42,8 +41,15 @@
                     </Run>
                 </TextBlock>
             </GroupBox.Header>
-            <ContentControl Content="{Binding }">
-
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:GameViewModel}">
+                        <view:GameView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                        <view:SettingsView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
             </ContentControl>
         </GroupBox>
     </DockPanel>

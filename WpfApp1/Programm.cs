@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 using System;
-
-using WpfApp1;
 
 namespace BullsAndCowsWPF
 {
@@ -25,7 +23,7 @@ namespace BullsAndCowsWPF
                 .ConfigureAppConfiguration((host, cfg) =>
                 {
                     cfg.SetBasePath(Environment.CurrentDirectory)
-                    .AddJsonFile("appsettings.json",true, true);
+                       .AddJsonFile("appsettings.json", true, true);
                 }).ConfigureServices(App.ConfigureServices);
 
 
