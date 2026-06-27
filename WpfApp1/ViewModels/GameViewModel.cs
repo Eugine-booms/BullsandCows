@@ -82,7 +82,7 @@ namespace BullsAndCowsWPF.ViewModels
             }
 
             var result = _gameEngine.MakeGuess(UserGuess);
-            Results.Add(result);
+            Results.Insert(0, result);
             UserGuess = string.Empty;
 
             if (_gameEngine.IsWin)
